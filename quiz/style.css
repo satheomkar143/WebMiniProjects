@@ -1,29 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
-  background: url(739912.jpg);
-  background-size: cover;
-  width: 100%;
-  background-repeat: no-repeat;
-  /* background-position: center center; */
-  min-height: 100 vh;
+body {
+  background: linear-gradient(to right, #eca6f1 0%, #c3f448 74%);
+
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
+  display: flex;
 }
 
-h1{
-  font-size: 4rem;
-  margin-top: 12rem;
-  justify-content: center;
+.quiz-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(255, 0, 0, 0.5);
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.quiz-no{
+  background-color: rgba(19, 105, 103, 0.5);
+  margin: 5px 20%;
+  padding: 5px;
+  border: 1px solid rgb(80, 71, 71);
+  border-radius: 10px;
   text-align: center;
-  color: rgb(237, 241, 26);
-  text-shadow:  red 5px 5px 10px;
+}
+
+.quiz-header{
+  margin: 0;
+  padding: 2rem ;
+}
+
+h2{
+  margin: 0;
+}
+
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+ul li{
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+#btn{
+  display: block;
+  background: rgb(190, 139, 20);
+  color: white;
+  margin: 2px auto;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+#btn:hover{
+  background: rgb(69, 46, 4);
 }
