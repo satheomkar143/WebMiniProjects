@@ -80,3 +80,63 @@ const quizData = [
     correct: "c",
   },
 ];
+
+const quiz_no = document.getElementById("quiz-no");
+const question = document.getElementById("question");
+const a_text = document.getElementById("a-text");
+const b_text = document.getElementById("b-text");
+const c_text = document.getElementById("c-text");
+const d_text = document.getElementById("d-text");
+const submit = document.getElementById("btn");
+const quiz_div = document.getElementsByClassName("quiz-container");
+
+let currentQuiz = 0;
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz() {
+  let currentQuizData = quizData[currentQuiz];
+
+  quiz_no.innerText = "Question: " + (currentQuiz + 1);
+  question.innerText = currentQuizData.que;
+  a_text.innerText = currentQuizData.a;
+  b_text.innerText = currentQuizData.b;
+  c_text.innerText = currentQuizData.c;
+  d_text.innerText = currentQuizData.d;
+}
+
+function selectedAns() {
+  let ans = undefined;
+  const answers = document.getElementsByName("answer");
+  answers.forEach((answer) => {
+    // console.log("selectedAns");
+    // console.log(answer.checked);
+    if (answer.checked) {
+      ans = answer.id;
+      answer.checked = false;
+    }
+  });
+  //console.log(ans);
+  return ans;
+}
+
+submit.addEventListener("click", () => {
+  currentQuiz++;
+  const userAns = selectedAns();
+  if (currentQuiz < quizData.length) {
+    if (userAns === quizData[currentQuiz].correct) {
+      //console.log("Correct");
+      score++;
+    }
+
+    loadQuiz();
+    // console.log(currentQuiz);
+  } else {
+    //console.log("completed");
+
+    quiz_div.innerHTML = "iiiiiiii"
+
+
+  }
+});
