@@ -88,7 +88,7 @@ const b_text = document.getElementById("b-text");
 const c_text = document.getElementById("c-text");
 const d_text = document.getElementById("d-text");
 const submit = document.getElementById("btn");
-const quiz_div = document.getElementsByClassName("quiz-container");
+const quiz_div = document.getElementById("quiz-container");
 
 let currentQuiz = 0;
 let score = 0;
@@ -122,21 +122,25 @@ function selectedAns() {
 }
 
 submit.addEventListener("click", () => {
-  currentQuiz++;
+  // console.log("coe = "+ quizData[currentQuiz].correct)
   const userAns = selectedAns();
-  if (currentQuiz < quizData.length) {
-    if (userAns === quizData[currentQuiz].correct) {
-      //console.log("Correct");
-      score++;
-    }
 
+  if (userAns === quizData[currentQuiz].correct) {
+    //  console.log("Correct");
+    score++;
+  }
+
+  currentQuiz++;
+  if (currentQuiz < quizData.length) {
     loadQuiz();
     // console.log(currentQuiz);
   } else {
     //console.log("completed");
+    //  quiz_div.innerHTML = "iiiiiiii"
 
-    quiz_div.innerHTML = "iiiiiiii"
+    quiz_div.innerHTML = `<h2>Great Work !! Quiz Completed.</h2> <h1>Score : ${score} </h1>
+    <button id='btn' onclick='location.reload()'>Restart</button>`;
 
-
+    quiz_div.style.textAlign = "center";
   }
 });
