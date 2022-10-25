@@ -2,6 +2,8 @@
 
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
@@ -38,6 +40,7 @@ header input{
   border: none;
   border-radius: 3px;
   padding: 0.5rem 1rem;
+  font-family: inherit;
 }
 
 header button{
@@ -50,7 +53,7 @@ header button{
 
 .fav-container{
   background-color:#ba5bee ;
-  padding: 1rem;
+  padding: 0.25rem 1rem;
   text-align: center;
 }
 
@@ -111,4 +114,16 @@ header button{
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+}
+
+.meal-body .fav-btn{
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: rgb(155, 153, 164);
+  cursor: pointer;
+}
+
+.meal-body .fav-btn.active{
+  color: rgb(202, 19, 184);
 }
