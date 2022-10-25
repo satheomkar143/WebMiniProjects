@@ -3,6 +3,9 @@ const favoriteContainer = document.getElementById("fav-meals");
 const searchContainer = document.getElementById("meals");
 const searchTerm = document.getElementById("search-term");
 const searchBtn = document.getElementById("search");
+const mealPopup = document.getElementById("meal-popup");
+const mealPopupBtn = document.getElementById("close-popup");
+const mealInfoEl = document.getElementById("meal-info");
 
 getRandomMeal();
 fetchFavMeals();
@@ -69,7 +72,12 @@ function addMeal(mealData, random = false) {
       btn.classList.add("active");
     }
     // alert("hello");
-    location.reload();
+    // location.reload();
+    fetchFavMeals();
+  });
+
+  meal.addEventListener("click", () => {
+    showMealInfo(mealData);
   });
   meals.appendChild(meal);
 }
@@ -125,6 +133,10 @@ function addMealFav(mealData) {
     fetchFavMeals();
   });
 
+  favMeal.addEventListener("click", () => {
+    showMealInfo(mealData);
+  });
+
   favoriteContainer.appendChild(favMeal);
 }
 
@@ -135,9 +147,49 @@ searchBtn.addEventListener("click", async () => {
   const meals = await getMealBySearch(search);
 
   // clear container
-  searchContainer.innerHTML = '';
+  searchContainer.innerHTML = "";
 
   meals.forEach((meal) => {
     addMeal(meal);
   });
 });
+
+mealPopupBtn.addEventListener("click", () => {
+  mealPopup.classList.add("hidden");
+});
+
+function showMealInfo(mealData) {
+  mealInfoEl.innerHTML = "";
+  // update the meal info
+  const mealEl = document.createElement("div");
+
+  // get ingredients
+  const ingredients = [];
+
+  for (let i = 1; i <= 20; i++) {
+    if (mealData["strIngredient" + i]) {
+      ingredients.push(
+        `${mealData["strIngredient" + i]} :: ${mealData["strMeasure" + i]}`
+      );
+      console.log(mealData["strIngredient" + i])
+    } else {
+      break;
+    }
+  }
+
+  mealEl.innerHTML = `
+    <h1>${mealData.strMeal}</h1>
+    <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}" />
+    <p>${mealData.strInstructions}</p>
+    <h3>Ingredients:</h3>
+    <ul>
+      ${ingredients.map((ing) => `<li>${ing}</li> `).join("")}
+    </ul>
+
+          
+  `;
+  mealInfoEl.appendChild(mealEl);
+
+  //show the popup
+  mealPopup.classList.remove("hidden");
+}
