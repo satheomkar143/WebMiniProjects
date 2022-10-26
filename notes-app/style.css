@@ -37,14 +37,16 @@ body {
   margin-left: 0.5rem;
 }
 .notes .main{
-  width: 350px;
+  /* width: 350px;
   height: 320px;
-  
+  /* display: none; 
   position: absolute;
   bottom: 1.5rem;
   left: 25px;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: hidden; */
+  height: 100%;
+  width: 100%;
 }
 
 .notes textarea{
@@ -53,4 +55,9 @@ body {
   border: none;
   font-family: inherit;
   outline: none;
+  font-size: 1.2rem;
+}
+
+.notes .hidden{
+  display: none;
 }
