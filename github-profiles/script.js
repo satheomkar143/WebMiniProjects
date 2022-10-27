@@ -9,6 +9,17 @@ async function getUser(user) {
   const respData = await resp.json();
 
   createUserCard(respData);
+
+  getRepos(user);
+}
+
+async function getRepos(user) {
+  const resp = await fetch(APIURL + user + "/repos");
+  const respData = await resp.json();
+
+  console.log(respData);
+
+  addReposToCard(respData);
 }
 
 function createUserCard(user) {
@@ -25,11 +36,30 @@ function createUserCard(user) {
         <li> <strong>Following: </strong> ${user.following}</li>
         <li> <strong>Repos: </strong>${user.public_repos}</li>
       </ul>
+      <div id="repos"></div>
     </div>
   </div>
   `;
 
   main.innerHTML = cardHTML;
+}
+
+function addReposToCard(repos) {
+  const reposEl = document.getElementById("repos");
+
+  repos
+  .sort((a, b) =>b.stargazers_count - a.stargazers_count)
+  .slice(0, 30)
+  .forEach((repo) => {
+    const repoEl = document.createElement("a");
+    repoEl.classList.add("repo");
+
+    repoEl.href = repo.html_url;
+    repoEl.target = "_blank";
+    repoEl.innerText = repo.name;
+
+    reposEl.appendChild(repoEl);
+  });
 }
 
 form.addEventListener("submit", (e) => {
@@ -39,7 +69,7 @@ form.addEventListener("submit", (e) => {
   if (user) {
     getUser(user);
   }
-  search.value ='';
+  search.value = "";
 });
 
 getUser("satheomkar143");
