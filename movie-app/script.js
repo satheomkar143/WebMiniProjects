@@ -16,7 +16,11 @@ async function getMovies(url) {
 
   console.log(respData);
 
-  showMovies(respData.results);
+  if (respData.results.length>0) {
+    showMovies(respData.results);
+  } else {
+    alert("no such movie found")
+  }
 
   // return respData;
 }
@@ -32,7 +36,8 @@ function showMovies(movies) {
 
     movieEl.innerHTML = `
     
-    <img src="${IMGPATH + poster_path}" alt="${title}">
+    <img src="${loadImg(poster_path)}" alt="${title}">
+
     <div class="movie-info">
       <h3>${title}</h3>
       <span class="${getClassByRate(vote_average)}">${vote_average}</span>
@@ -44,6 +49,15 @@ function showMovies(movies) {
     `;
     main.appendChild(movieEl);
   });
+}
+
+function loadImg(poster_path) {
+  if (poster_path != null) {
+    return IMGPATH + poster_path;
+    // <img src="${IMGPATH + poster_path}" alt="${title}"></img>
+  } else {
+    return "img.png"
+  }
 }
 
 function getClassByRate(vote) {

@@ -124,7 +124,7 @@ header{
   box-shadow: 0 0 5px yellow;
   max-height: 93%;
   overflow: auto;
-  transform: translateY(110%);
+  transform: translateY(150%);
   transition: all 0.2s ease-in;
 }
 
