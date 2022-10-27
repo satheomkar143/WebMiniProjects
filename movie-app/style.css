@@ -9,4 +9,33 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
+  background-color: rgb(53, 42, 179);
+}
+
+.movie{
+  margin: 2rem auto;
+  width: 300px;
+  /* height: 400px; */
+  border-radius: 5px;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.movie img{
+  max-width: 100%;
+  max-height: 400px
+  object-fit: cover;
+}
+
+.movie-info{
+  color: rgb(230, 223, 223);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  letter-spacing: 1px;
+}
+
+.movie-info span{
+  background-color: rgb(19, 10, 124);
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
 }
