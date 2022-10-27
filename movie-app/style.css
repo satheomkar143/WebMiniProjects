@@ -12,6 +12,11 @@ body {
   background-color: rgb(53, 42, 179);
 }
 
+main{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .movie{
   margin: 2rem auto;
   width: 300px;
@@ -32,10 +37,28 @@ body {
   justify-content: space-between;
   padding: 1rem;
   letter-spacing: 1px;
+  align-items: center;;
+}
+
+.movie-info h3{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .movie-info span{
   background-color: rgb(19, 10, 124);
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
+  font-weight: bold;
+}
+
+.movie-info span.green{
+  color: green;
+}
+.movie-info span.orange{
+  color: orange;
+}
+.movie-info span.red{
+  color: red;
 }
