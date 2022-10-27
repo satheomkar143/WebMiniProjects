@@ -10,9 +10,24 @@ body {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  padding-top:3rem;
 }
 
-.notes{
+.add-btn{
+  background-color: #89e960;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  box-shadow: 2px 3px 5px red;
+  cursor: pointer;
+}
+
+.note{
   margin: 20px auto;
   width: 400px;
   height: 400px;
@@ -20,44 +35,49 @@ body {
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
 }
 
-.notes .tools{
+.note .tools{
   background-color: #89e960;
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem;
 }
 
-.notes .tools button{
+.note .tools button{
   border: none;
   background-color: transparent;
   color: rebeccapurple;
   font-size: 1rem;
   margin-left: 0.5rem;
+  cursor: pointer;
 }
-.notes .main{
-  /* width: 350px;
+.note .main{
+  width: 350px;
   height: 320px;
-  /* display: none; 
+  /* /* display: none; */
   position: absolute;
   bottom: 1.5rem;
   left: 25px;
   border-radius: 0.5rem;
-  overflow: hidden; */
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
+  /* height: 100%;
+  width: 100%; */
 }
 
-.notes textarea{
-  width: 100%;
-  height: 100%;
+.note textarea{
+  max-width: 350px;
+  max-height: 320px;
+  min-width: 350px;
+  min-height: 320px;
+  margin: 1.5rem;
   border: none;
   font-family: inherit;
   outline: none;
   font-size: 1.2rem;
 }
 
-.notes .hidden{
+.note .hidden{
   display: none;
 }
