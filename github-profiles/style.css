@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+#main{
+  margin: 20px auto;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -22,6 +26,7 @@ input{
   border: none;
   border-radius: 10px;
   padding: 1rem;
+  margin-top: 50px;
   margin-bottom: 2rem;
   outline: none;
   font-family: inherit;
