@@ -19,8 +19,9 @@ body {
 
 .pw-container{
   background: rgb(35, 19, 52);
-  width: 400px;
-  padding: 1rem;
+  min-width: 400px;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+  /* padding: 1rem; */
 }
 
 .pw-header{
@@ -37,18 +38,49 @@ body {
   position: relative;
   padding: 1rem;
 }
+#pw{
+  color: blue;
+}
 
 .pw button{
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%,50%);
+  top: 0;
+  right: 0;
+  transform: translateY(-50%);
   background-color: rebeccapurple;
   border: none;
   color: white;
   padding: 0.25rem 0.5rem;
+  font-family: inherit;
+  opacity: 0;
+  transition:  0.2s ease-in-out;
+  cursor: pointer;
+}
+.pw:hover button{
+  opacity: 1;
+  transform: translateY(-100%);
 }
 
 .pw-body{
-  padding: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.form-control{
+  display: flex;
+  justify-content: space-between;
+  margin: 0.75rem 0;
+  color: #eee;
+}
+
+#generate{
+  background-color: #ecb602;
+  border: none;
+  color: rebeccapurple;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  cursor: pointer;
 }
