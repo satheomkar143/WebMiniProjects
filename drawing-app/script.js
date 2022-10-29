@@ -3,6 +3,8 @@ const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
 const brushSize = document.getElementById("size");
 const colorPicker = document.getElementById("color");
+const clearBtn = document.getElementById("clear");
+const eraserBtn = document.getElementById("eraser");
 
 const ctx = canvas.getContext("2d");
 
@@ -23,19 +25,21 @@ canvas.addEventListener("mouseup", () => {
   y = undefined;
 });
 
-canvas.addEventListener("mousemove", (e) => {
+draw = (e) => {
   console.log(e);
-
+  
   if (isPressed) {
     const x2 = e.offsetX;
     const y2 = e.offsetY;
     drawCircle(x2, y2);
-
+    
     drawLine(x, y, x2, y2);
     x=x2;
     y=y2;
   }
-});
+}
+
+canvas.addEventListener("mousemove", draw);
 
 let color = "black";
 
@@ -82,6 +86,17 @@ decreaseBtn.addEventListener("click", () => {
 
   brushSize.innerText = size;
 });
+
+clearBtn.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
+
+eraserBtn.addEventListener("click", () => { 
+  color="white";
+  size *=2;
+  brushSize.innerText = size;
+})
+
 
 // function draw() {
 //   ctx.clearRect(0,0,canvas.width,canvas.height);
