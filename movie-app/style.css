@@ -73,8 +73,9 @@ header{
 }
 
 .movie img{
+  min-width: 100%;
   max-width: 100%;
-  max-height: 400px
+  max-height: 400px;
   object-fit: cover;
 }
 
@@ -84,7 +85,7 @@ header{
   justify-content: space-between;
   padding: 1rem;
   letter-spacing: 1px;
-  align-items: center;;
+  align-items: center;
 }
 
 .movie-info h3{
